@@ -1,0 +1,23 @@
+{
+  "name": "event-booking-app",
+  "version": "1.0.0",
+  "description": "This is an Event Booking application.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js --exec babel-node",
+    "start": "node index.js"
+  },
+  "author": "Puneeth P Gowda",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.24.0",
+    "mongoose": "^5.12.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.14.1",
+    "nodemon": "^2.0.7"
+  }
+}
