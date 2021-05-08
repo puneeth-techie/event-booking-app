@@ -1,1 +1,1 @@
-export { default as userTypeDefs } from "./user.js";
+export { typeDef as User } from "./user.js";

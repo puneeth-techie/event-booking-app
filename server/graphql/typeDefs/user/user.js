@@ -1,8 +1,8 @@
-import { gql } from "apollo-server";
-
-const userTypeDefs = gql`
-  type query {
-    user: String
+export const typeDef = `
+  type User {
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
   }
 `;
-export default userTypeDefs;

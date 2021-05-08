@@ -1,11 +1,9 @@
-import { eventQueries } from "./events";
-import { userQueries } from "./user";
+import { eventQueries } from "./events/index.js";
+import { userQueries } from "./user/index.js";
 
-const resolvers = {
+export const resolvers = {
   Query: {
     ...eventQueries,
     ...userQueries,
   },
 };
-
-export default resolvers;

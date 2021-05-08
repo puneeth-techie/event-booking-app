@@ -1,9 +1,11 @@
-import { eventTypeDefs } from "./events";
-import { userTypeDefs } from "./user";
+import { Event } from "./events/index.js";
+import { User } from "./user/index.js";
 
-const typeDefs = {
-  ...eventTypeDefs,
-  ...userTypeDefs,
-};
+const Query = `
+    type Query {
+        user(userName: String): String
+        event(eventName: String): String
+    }
+`;
 
-export default typeDefs;
+export const typeDefs = [Query, Event, User];

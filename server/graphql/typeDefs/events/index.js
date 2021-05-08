@@ -1,1 +1,1 @@
-export { default as eventTypeDefs } from "./event.js";
+export { typeDef as Event } from "./event.js";

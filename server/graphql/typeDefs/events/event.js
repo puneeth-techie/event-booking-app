@@ -1,8 +1,7 @@
-import { gql } from "apollo-server";
-
-const eventTypeDefs = gql`
-  type query {
-    event: String
+export const typeDef = `
+  type Event {
+    id: ID
+    eventName: String
+    eventDate: String
   }
 `;
-export default eventTypeDefs;
