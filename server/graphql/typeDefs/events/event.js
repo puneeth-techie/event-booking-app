@@ -3,7 +3,7 @@ export const typeDef = `
     id: ID!
     title: String!
     description: String!
-    price: Number!
+    price: Int!
     date: String!
   }
 `;
