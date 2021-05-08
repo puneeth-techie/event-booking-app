@@ -1,15 +1,26 @@
+import { env } from "./server/config/config.js";
 import { ApolloServer } from "apollo-server";
 import { resolvers, typeDefs } from "./server/graphql/index.js";
 
+/** Init Apollo Server */
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  playground:
+    env.dev.NODE_ENV !== "development"
+      ? false
+      : {
+          settings: {
+            "request.credentials": "include",
+          },
+        },
 });
 
-server.listen().then(() => {
+/** Starting Apollo Server */
+server.listen(env.dev.PORT).then(() => {
   console.log(`
         Server is up and running!
-        Listening on port 4000
-        Query at https://studio.apollographql.com/dev
+        Listening on port ${env.dev.PORT}
+        Query at ${env.dev.APOLLO_URL}
     `);
 });

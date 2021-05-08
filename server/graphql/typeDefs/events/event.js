@@ -1,7 +1,9 @@
 export const typeDef = `
   type Event {
-    id: ID
-    eventName: String
-    eventDate: String
+    id: ID!
+    title: String!
+    description: String!
+    price: Number!
+    date: String!
   }
 `;
