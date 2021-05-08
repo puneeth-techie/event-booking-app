@@ -1,4 +1,5 @@
-import { env } from "./server/config/config.js";
+import { env } from "./server/config/index.js";
+import { connectDB } from "./server/db/index.js";
 import { ApolloServer } from "apollo-server";
 import { resolvers, typeDefs } from "./server/graphql/index.js";
 
@@ -24,3 +25,6 @@ server.listen(env.dev.PORT).then(() => {
         Query at ${env.dev.APOLLO_URL}
     `);
 });
+
+/** Starting MongoDB database */
+await connectDB();
