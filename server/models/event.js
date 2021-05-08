@@ -16,12 +16,10 @@ const eventSchema = new mongoose.Schema(
     },
     date: {
       type: Date,
-      default: Date.now(),
+      required: true,
     },
   },
   { timestamps: true }
 );
 
-const Event = mongoose.model("Event", eventSchema);
-
-export default Event;
+export const Event = mongoose.model("Event", eventSchema);
