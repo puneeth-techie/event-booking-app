@@ -8,12 +8,19 @@ const Query = `
         price: Int
         date: String!
     }
+    input userInput {
+        firstName: String!
+        lastName: String!
+        email: String!
+        password: String!
+    }
     type Query {
-        user(userName: String): String
-        event(eventName: String): String
+        user: String
+        getAllEvent: [Event!]!
     }
     type Mutation {
         createEvent(event: eventInput): Event
+        registerUser(user: userInput): String
     }
 `;
 

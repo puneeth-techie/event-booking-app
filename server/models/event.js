@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const eventSchema = new mongoose.Schema(
   {
@@ -17,6 +17,10 @@ const eventSchema = new mongoose.Schema(
     date: {
       type: Date,
       required: true,
+    },
+    creator: {
+      type: Schema.Types.ObjectId,
+      ref: "userModel",
     },
   },
   { timestamps: true }

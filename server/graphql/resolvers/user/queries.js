@@ -1,5 +1,3 @@
-const userQueries = {
+export const Queries = {
   user: () => "Hello user resolver is working fine.",
 };
-
-export default userQueries;

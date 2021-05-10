@@ -1,5 +1,5 @@
 import { eventQueries, eventMutations } from "./events/index.js";
-import { userQueries } from "./user/index.js";
+import { userQueries, userMutations } from "./user/index.js";
 
 export const resolvers = {
   Query: {
@@ -8,5 +8,6 @@ export const resolvers = {
   },
   Mutation: {
     ...eventMutations,
+    ...userMutations,
   },
 };
