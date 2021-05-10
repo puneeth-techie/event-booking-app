@@ -1,6 +1,7 @@
 import { Event } from "./events/index.js";
 import { User } from "./user/index.js";
 import { Booking } from "./booking/index.js";
+import { Auth } from "./auth/index.js";
 
 const Query = `
     input eventInput {
@@ -19,6 +20,7 @@ const Query = `
         user: String
         getAllEvents: [Event!]!
         getAllBookings: [Booking!]!
+        login(email: String, password: String): Auth!
     }
     type Mutation {
         createEvent(event: eventInput): Event
@@ -26,4 +28,4 @@ const Query = `
     }
 `;
 
-export const typeDefs = [Query, Event, User, Booking];
+export const typeDefs = [Query, Event, User, Booking, Auth];

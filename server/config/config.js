@@ -10,6 +10,7 @@ export const env = {
     MONGO_USERNAME: process.env.MONGO_USERNAME,
     MONGO_PASSWORD: process.env.MONGO_PASSWORD,
     MONGO_DB: process.env.MONGO_DB,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
   production: {
     PORT: process.env.PORT,
@@ -17,5 +18,6 @@ export const env = {
     MONGO_USERNAME: process.env.MONGO_USERNAME,
     MONGO_PASSWORD: process.env.MONGO_PASSWORD,
     MONGO_DB: process.env.MONGO_DB,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
 };
