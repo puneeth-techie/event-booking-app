@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createdEvent: [
+  createdEvents: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "eventModel",
