@@ -1,7 +1,7 @@
 import { eventModel } from "../../../models/index.js";
 
 export const Queries = {
-  getAllEvent: async () => {
+  getAllEvents: async () => {
     try {
       const event = await eventModel.find();
       return event;

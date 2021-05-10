@@ -20,7 +20,7 @@ const Query = `
         user: String
         getAllEvents: [Event!]!
         getAllBookings: [Booking!]!
-        login(email: String, password: String): Auth!
+        login(email: String, password: String): Auth
     }
     type Mutation {
         createEvent(event: eventInput): Event

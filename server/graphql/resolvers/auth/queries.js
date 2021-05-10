@@ -19,7 +19,7 @@ export const Queries = {
           const token = generateToken(user);
           return {
             userId: user._id,
-            ...token,
+            token,
           };
         }
       }
