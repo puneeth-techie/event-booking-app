@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
   },
   createdEvent: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "eventModel",
     },
   ],
