@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { userModel } from "./index.js";
 
 const eventSchema = new mongoose.Schema(
   {
@@ -20,7 +21,7 @@ const eventSchema = new mongoose.Schema(
     },
     creator: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "userModel",
+      ref: "User",
     },
   },
   { timestamps: true }

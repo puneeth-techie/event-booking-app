@@ -4,11 +4,11 @@ const bookingSchema = new mongoose.Schema(
   {
     event: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "eventModel",
+      ref: "Event",
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "userModel",
+      ref: "User",
     },
   },
   { timestamps: true }

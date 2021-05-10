@@ -5,5 +5,6 @@ export const typeDef = `
     description: String!
     price: Int!
     date: String!
+    creator: User!
   }
 `;

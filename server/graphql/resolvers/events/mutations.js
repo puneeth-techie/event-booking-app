@@ -1,4 +1,5 @@
-import { eventModel } from "../../../models/index.js";
+import { eventModel, userModel } from "../../../models/index.js";
+import { User } from "../../typeDefs/user/index.js";
 
 export const Mutations = {
   createEvent: async (_, args, context) => {
@@ -16,7 +17,17 @@ export const Mutations = {
           creator: verifiedUser._id,
         });
         await event.save();
-        return event;
+        const user = await userModel.findById(verifiedUser._id);
+        if (!user) {
+          throw new Error("User not found.");
+        } else {
+          user.createdEvents.push(event._id);
+          await user.save();
+        }
+        return {
+          creator: verifiedUser,
+          ...event,
+        };
       }
     } catch (error) {
       console.log(`CreatEvent: ${error.message}`);

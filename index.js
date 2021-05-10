@@ -9,14 +9,9 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: async ({ req }) => {
-    try {
-      const token = req.headers.authorization;
-      const user = await getVerifiedUser(token);
-      return { user };
-    } catch (error) {
-      console.log(`Context: ${error.message}`);
-      throw error;
-    }
+    const token = req.headers.authorization;
+    const user = await getVerifiedUser(token);
+    return { user };
   },
   playground:
     env.dev.NODE_ENV !== "development"
