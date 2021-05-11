@@ -1,36 +1,23 @@
 import { env } from "./server/config/index.js";
 import { connectDB } from "./server/db/index.js";
-import { ApolloServer } from "apollo-server";
-import { resolvers, typeDefs } from "./server/graphql/index.js";
-import { getVerifiedUser } from "./server/utils/index.js";
+import { startApolloServer } from "./server/utils/index.js";
+import http from "http";
+import { app } from "./server/startup/index.js";
 
-/** Init Apollo Server */
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: async ({ req }) => {
-    const token = req.headers.authorization;
-    const user = await getVerifiedUser(token);
-    return { user };
-  },
-  playground:
-    env.dev.NODE_ENV !== "development"
-      ? false
-      : {
-          settings: {
-            "request.credentials": "include",
-          },
-        },
-});
+/** */
+const server = http.createServer(app);
 
 /** Starting Apollo Server */
-server.listen(env.dev.PORT).then(() => {
-  console.log(`
-        Server is up and running!
-        Listening on port ${env.dev.PORT}
-        Query at ${env.dev.APOLLO_URL}
-    `);
-});
+await startApolloServer();
 
+const port = env.dev.PORT;
+server.listen(port, () => {
+  console.log(`
+    Server is up and running..!
+    Query at "https://studio.apollographql.com/dev"
+  `);
+});
 /** Starting MongoDB database */
 await connectDB();
+
+export default app;
