@@ -24,10 +24,7 @@ export const Mutations = {
           user.createdEvents.push(event._id);
           await user.save();
         }
-        return {
-          creator: verifiedUser,
-          ...event,
-        };
+        return event;
       }
     } catch (error) {
       console.log(`CreatEvent: ${error.message}`);

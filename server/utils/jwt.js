@@ -19,8 +19,5 @@ export const verifyToken = async (token) => {
     const decoded = jwt.verify(token, env.dev.JWT_SECRET);
     const user = await userModel.findById(decoded._id);
     return user;
-  } catch (error) {
-    console.log(`VERIFY_TOKEN: ${error.message}`);
-    throw error;
-  }
+  } catch {}
 };
