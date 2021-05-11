@@ -10,7 +10,10 @@ const server = http.createServer(app);
 /** Starting Apollo Server */
 await startApolloServer();
 
+/** Getting PORT from env */
 const port = env.dev.PORT;
+
+/** Starting express server */
 server.listen(port, () => {
   console.log(`
     Server is up and running..!
