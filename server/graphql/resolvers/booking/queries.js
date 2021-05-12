@@ -1,7 +1,7 @@
 import { bookingModel } from "../../../models/index.js";
 
 export const Queries = {
-  getAllBookings: async () => {
+  getMyBookings: async () => {
     try {
       const bookings = await bookingModel.find();
       return bookings;

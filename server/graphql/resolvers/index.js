@@ -1,7 +1,7 @@
 import { userModel } from "../../models/index.js";
 import { eventQueries, eventMutations } from "./events/index.js";
 import { userQueries, userMutations } from "./user/index.js";
-import { bookingQueries } from "./booking/index.js";
+import { bookingQueries, bookingMutations } from "./booking/index.js";
 import { authQueries } from "./auth/index.js";
 
 export const resolvers = {
@@ -14,6 +14,7 @@ export const resolvers = {
   Mutation: {
     ...eventMutations,
     ...userMutations,
+    ...bookingMutations,
   },
   Event: {
     creator: async (parent) => {

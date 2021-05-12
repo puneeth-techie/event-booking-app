@@ -19,12 +19,13 @@ const Query = `
     type Query {
         me: User!
         getAllEvents: [Event!]!
-        getAllBookings: [Booking!]!
+        getMyBookings: [Booking!]!
         login(email: String, password: String): Auth!
     }
     type Mutation {
         createEvent(event: eventInput): Event!
         registerUser(user: userInput): String!
+        bookEvent(eventId): String!
     }
 `;
 
