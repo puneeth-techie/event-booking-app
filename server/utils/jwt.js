@@ -14,10 +14,18 @@ export const generateJWT = (user) => {
   }
 };
 
-export const verifyToken = async (token) => {
+export const verifyToken = async ({ req }) => {
   try {
-    const decoded = jwt.verify(token, env.dev.JWT_SECRET);
-    const user = await userModel.findById(decoded._id);
-    return user;
-  } catch {}
+    const token = req.headers.authorization;
+    if (!token || token === "") {
+      throw new Error("Authorization header required/Invalid token.");
+    } else {
+      const decoded = jwt.verify(token, env.dev.JWT_SECRET);
+      const user = await userModel.findById(decoded._id);
+      return user;
+    }
+  } catch (error) {
+    console.log(`VERIFY_TOKEN: ${error.message}`);
+    throw error;
+  }
 };

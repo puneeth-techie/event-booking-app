@@ -1,10 +1,10 @@
 import { eventModel, userModel } from "../../../models/index.js";
-import { User } from "../../typeDefs/user/index.js";
+import { authUser } from "../../../utils/index.js";
 
 export const Mutations = {
-  createEvent: async (_, args, context) => {
+  createEvent: async (_, args, { req }) => {
     try {
-      const verifiedUser = await context.user;
+      const verifiedUser = await authUser({ req });
       if (!verifiedUser) {
         throw new Error("No authorization. Invalid token please login.");
       } else {

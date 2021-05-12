@@ -17,7 +17,7 @@ const Query = `
         password: String!
     }
     type Query {
-        user: String
+        me: User!
         getAllEvents: [Event!]!
         getAllBookings: [Booking!]!
         login(email: String, password: String): Auth!
