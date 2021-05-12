@@ -25,7 +25,7 @@ const Query = `
     type Mutation {
         createEvent(event: eventInput): Event!
         registerUser(user: userInput): String!
-        bookEvent(eventId): String!
+        bookEvent(eventId: String): String!
     }
 `;
 
