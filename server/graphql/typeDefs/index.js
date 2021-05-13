@@ -17,15 +17,16 @@ const Query = `
         password: String!
     }
     type Query {
+        login(email: String, password: String): Auth!
         me: User!
         getAllEvents: [Event!]!
+        getSingleEvent(eventId: String): Event!
         getMyBookings: [Booking!]!
-        login(email: String, password: String): Auth!
     }
     type Mutation {
         createEvent(event: eventInput): Event!
-        registerUser(user: userInput): String!
         bookEvent(eventId: String): String!
+        registerUser(user: userInput): String!
     }
 `;
 
