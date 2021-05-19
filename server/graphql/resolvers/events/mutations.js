@@ -30,4 +30,24 @@ export const Mutations = {
       console.log(`CreatEvent: ${error.message}`);
     }
   },
+  deleteEvent: async (_, args, { req }) => {
+    try {
+      const verifiedUser = await authUser({ req });
+      if (!verifiedUser) {
+        throw new Error(
+          "Authentication required. Valid auth headers required."
+        );
+      } else {
+        const event = await eventModel.deleteOne(args.eventId);
+        if (!event) {
+          throw new Error("No event found with the given id.");
+        } else {
+          return `${args.eventId} event successfully deleted.`;
+        }
+      }
+    } catch (error) {
+      console.log(`DELETE_EVENT: ${error.message}`);
+      throw error;
+    }
+  },
 };

@@ -24,9 +24,10 @@ const Query = `
         getMyBookings: [Booking!]!
     }
     type Mutation {
+        registerUser(user: userInput): String!
         createEvent(event: eventInput): Event!
         bookEvent(eventId: String): String!
-        registerUser(user: userInput): String!
+        deleteEvent(eventId: String): String!
     }
 `;
 
